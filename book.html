@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Details</title>
+  </head>
+  <body>
+    <h1>Book Details</h1>
+
+    <h2>Title of the First Book:</h2>
+    <p id="first-book-title"></p>
+
+    <h2>Author of the Second Book:</h2>
+    <p id="second-book-author"></p>
+
+    <h2>Genres of All Books:</h2>
+    <ul id="book-genres"></ul>
+
+    <script>
+      const data = {
+        books: [
+          {
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            publicationYear: 1925,
+            genres: ["Fiction", "Classics"],
+          },
+          {
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            publicationYear: 1960,
+            genres: ["Fiction", "Coming-of-Age"],
+          },
+        ],
+      };
+
+      // Extract data
+      const firstBookTitle = data.books[0].title;
+      const secondBookAuthor = data.books[1].author;
+      const allGenres = data.books.flatMap((book) => book.genres);
+
+      // Display in HTML
+      document.getElementById("first-book-title").textContent = firstBookTitle;
+      document.getElementById("second-book-author").textContent =
+        secondBookAuthor;
+
+      const genresList = document.getElementById("book-genres");
+      allGenres.forEach((genre) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = genre;
+        genresList.appendChild(listItem);
+      });
+    </script>
+  </body>
+</html>
